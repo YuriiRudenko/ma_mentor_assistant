@@ -1,0 +1,27 @@
+version: '3'
+services:
+  ma-db:
+    container_name: ma-db
+    image: postgres:11-alpine
+    volumes:
+      - ma-data-postgres:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+  ma-node:
+    container_name: ma-node
+    image: ma_node
+    build: .
+    command: /bin/sh -c "node /app/app.js"
+    ports:
+      - 8082:8080
+    volumes:
+      - .:/app
+      - ./package.json:/package.json
+    depends_on:
+      - ma-db
+    env_file: .env
+    tty: true
+    stdin_open: true
+volumes:
+  ma-data-postgres:
+    driver: local

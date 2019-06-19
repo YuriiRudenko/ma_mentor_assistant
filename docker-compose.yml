@@ -11,7 +11,7 @@ services:
     container_name: ma-node
     image: ma_node
     build: .
-    command: /bin/sh -c "node /app/app.js"
+    command: /bin/sh -c "npm run start"
     ports:
       - 8082:8080
     volumes:

@@ -22,6 +22,6 @@
     "node-pg-migrate": "^3.21.1",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.8.10"
+    "sequelize": "^5.15.1"
   }
 }
